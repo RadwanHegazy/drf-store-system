@@ -34,7 +34,7 @@ class ProductModel (models.Model) :
     price = models.FloatField()
     quantity = models.IntegerField()
 
-    def Image(self): #new
+    def Image(self):
         return mark_safe(f'<img src = "{self.image.url}" width = "300"/>')
 
     def __str__(self) : 
@@ -51,6 +51,10 @@ class CartModel (models.Model) :
     def __str__(self) : 
         return f'{self.product}'
     
+    class Meta:
+        unique_together = (('user','product'),)
+        index_together = (('user','product'),)
+
 
 class PaymenyModel (models.Model) :
     products = models.ManyToManyField(ProductModel)

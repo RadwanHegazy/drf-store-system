@@ -21,7 +21,7 @@ class PaymentPanel (admin.ModelAdmin) :
 class CustomUserPanel (admin.ModelAdmin) : 
     list_display = ['username','email','country']
     search_fields = ['username']
-    list_filter = ['gender']
+    list_filter = ['gender','country']
 
 
 
@@ -30,6 +30,7 @@ class CustomUserPanel (admin.ModelAdmin) :
 admin.site.register(ProductModel, ProductPanel)
 admin.site.register(PaymenyModel, PaymentPanel)
 admin.site.register(CustomUser, CustomUserPanel)
+admin.site.register(CartModel)
 
 
 
